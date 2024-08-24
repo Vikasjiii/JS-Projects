@@ -13,10 +13,16 @@ generateMemeButton.addEventListener("click", () => {
 
       memeAuthor.innerText = author;
       memeTitle.innerText = title;
+      
+console.log(postLink);
 
       memeImg.src = postLink;
+      console.log(memeImg);
+
       loadingText.style.display = "none";
     });
 });
+
+
 
 generateMemeButton.click();
