@@ -10,34 +10,26 @@
     />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
-     <!-- <script src="rough.js" defer></script> -->
+    <!-- <script src="rough.js" defer></script> -->
   </head>
   <body>
     <header>
       <h1>To-Do List</h1>
     </header>
     <div class="container">
-      <div class="input-and-warning-container">
+      <div class="user-input-and-warning-container">
         <div class="user-input-container">
           <input type="text" placeholder="Add a new todo" />
           <div class="add-task-btn">Add</div>
         </div>
-
         <div class="warning-for-empty-task">Please Enter a task</div>
-
       </div>
-      <div class="all-todos-container">
-        <!-- <div class="one-todo-container">
-          <span class="todo-number">1)</span>
-          <input type="text" disabled="disabled" value="ddffdfdfddsf" />
-          <div class="controls">
-            <div class="complete-btn">complete</div>
-            <div class="edit-btn">edit</div>
-            <div class="delete-btn">delete</div>
-          </div> -->
-        </div>
-        <!-- <input type="text" value="akasj vikas sahni"> -->
-      </div>
+      <div class="all-todos-container"></div>
+    </div>
+    <div class="stats">
+      <span>Total Task: <span class="total-task-count"></span></span>
+      <span>Completed Task: <span class="completed-task-count">0</span></span>
+      <span>Remaining Task: <span class="remaining-task-count">0</span></span>
     </div>
   </body>
 </html>
