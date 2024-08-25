@@ -1,0 +1,33 @@
+body{
+  margin: 24px;
+}
+h1{
+    text-align: center;
+}
+.container {
+  max-width: 500px;
+
+  margin-inline: auto;
+  /* border: 1px solid teal; */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.string-input {
+    width: 90%;
+    margin-bottom: 1rem;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+}
+
+fieldset {
+  background-color: #f5f4dd;
+}
+
+legend {
+  font-size: 0.75rem;
+  background-color: #000;
+  color: #fff;
+  padding: 0.25rem;
+}
