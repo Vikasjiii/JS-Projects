@@ -33,6 +33,7 @@ function disableButtons() {
   startButtonClickable = true;
 }
 function restartGame() {
+  randomNumber = Math.ceil(Math.random() * 100);
   userInputCount = 0;
   hint.innerText = "";
   previoiusGuesses.classList.add("hide");
