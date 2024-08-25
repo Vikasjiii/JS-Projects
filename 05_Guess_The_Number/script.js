@@ -77,7 +77,4 @@ startGameButton.addEventListener("click", (e) => {
 
 userNumberInput.focus();
 
-for (let i = 1; i < 10; i++) {
-  userNumberInput.value = i;
-  document.querySelector(".submit-btn").click();
-}
+
