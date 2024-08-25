@@ -1,0 +1,69 @@
+const userNumberInput = document.querySelector("#user-number-input");
+const form = document.querySelector("form");
+const randomNumber = Math.ceil(Math.random() * 100);
+const hint = document.querySelector(".hint");
+const previoiusGuesses = document.querySelector(".previous-guess");
+const startGameButton = document.querySelector(".start-game-button");
+let userInputCount = 0;
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  //user guess can not be empty
+  if (userNumberInput.value === "") {
+    return;
+  }
+  ++userInputCount;
+  const userGuessNumber = Number(userNumberInput.value);
+  if (userInputCount <= 10) {
+    userNumberInput.value = "";
+    checkUserNumberInput(userGuessNumber);
+  }
+
+  if (userInputCount === 10) {
+    hint.innerText = `You lost! The number was ${randomNumber}`;
+
+    userNumberInput.disabled = true;
+    userNumberInput.classList.add("disable-btn");
+    startGameButton.classList.remove("disable-btn");
+    startGameButton.classList.add("glow-start-btn");
+    return;
+  }
+});
+
+function checkUserNumberInput(userNum) {
+  console.log("random num by computer", randomNumber);
+  previoiusGuesses.classList.remove("hide");
+
+  if (userNum === randomNumber) {
+    previoiusGuesses.innerText = `${previoiusGuesses.innerText} ${userNum},`;
+
+    hint.innerText = `You got it! Congrats`;
+    userNumberInput.disabled = true;
+    userNumberInput.classList.add("disable-btn");
+    startGameButton.classList.remove("disable-btn");
+    startGameButton.classList.add("glow-start-btn");
+  } else if (userNum > randomNumber) {
+    hint.innerText = `Too high!`;
+  } else {
+    hint.innerText = `Too low!`;
+    previoiusGuesses.innerText = `${previoiusGuesses.innerText} ${userNum},`;
+  }
+}
+
+function restartGame() {
+  userInputCount = 0;
+  hint.innerText = "";
+  previoiusGuesses.classList.add("hide");
+  previoiusGuesses.innerText = `Your guesses:`;
+
+  userNumberInput.disabled = false;
+  userNumberInput.classList.remove("disable-btn");
+  startGameButton.classList.add("disable-btn");
+  startGameButton.classList.remove("glow-start-btn");
+}
+userNumberInput.focus();
+
+startGameButton.addEventListener("click", () => {
+  restartGame();
+});
