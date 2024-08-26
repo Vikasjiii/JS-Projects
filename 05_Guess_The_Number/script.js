@@ -1,6 +1,6 @@
 const userNumberInput = document.querySelector("#user-number-input");
 const form = document.querySelector("form");
-const randomNumber = Math.ceil(Math.random() * 100);
+let randomNumber = Math.ceil(Math.random() * 100);
 const hint = document.querySelector(".hint");
 const previoiusGuesses = document.querySelector(".previous-guess");
 const startGameButton = document.querySelector(".start-game-button");
