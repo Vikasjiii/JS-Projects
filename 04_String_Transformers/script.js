@@ -7,29 +7,12 @@ const pascalCaseValue = document.querySelector(".pascal-case div");
 const snakeCaseValue = document.querySelector(".snake-case div");
 const kebabCaseValue = document.querySelector(".kebab-case div");
 
-stringInput.addEventListener("input", () => {
-  //lower-case
-
-  lowerCaseValue.innerText = stringInput.value.toLowerCase();
-  upperCaseValue.innerText = stringInput.value.toUpperCase();
-  trimValue.innerText = stringInput.value.trim();
-  camelCaseValue.innerText = camelCase(stringInput.value, " ");
-  pascalCaseValue.innerText =
-    camelCase(stringInput.value, " ")[0].toUpperCase() +
-    camelCase(stringInput.value, " ").slice(1);
-
-  snakeCaseValue.innerText=changeSpace(stringInput.value,"_")
-  kebabCaseValue.innerText=changeSpace(stringInput.value,"-")
-});
-
-function camelCase(str, x) {
+function camelCase(str) {
   console.log(str);
 
   for (let i = 0; i < str.length; i++) {
-    if (str[i] === x && str[i + 1] != undefined) {
+    if (str[i] === " " && str[i + 1] != undefined) {
       str = str.replace(str[i], str[i + 1].toUpperCase());
-      console.log(str);
-
       str = str.slice(0, i + 1) + str.slice(i + 2);
     }
   }
@@ -37,12 +20,35 @@ function camelCase(str, x) {
   return str;
 }
 
-function changeSpace(str, x) {
+function replaceSpace(str, symbol) {
   for (let i = 0; i < str.length; i++) {
     if (str[i] === " ") {
-      str = str.replace(str[i], x);
-      console.log(str);
+      str = str.replace(str[i], symbol);
     }
   }
-  return str
+  return str.toLowerCase();
 }
+
+stringInput.addEventListener("input", () => {
+  const str = stringInput.value.trim();
+  let spaceCount = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === " ") {
+      ++spaceCount;
+    }
+  }
+
+  if (spaceCount === str.length) {
+    return;
+  }
+
+  lowerCaseValue.innerText = str.toLowerCase();
+  upperCaseValue.innerText = str.toUpperCase();
+  trimValue.innerText = str.replaceAll(" ", "");
+  camelCaseValue.innerText = camelCase(str);
+  pascalCaseValue.innerText =
+    camelCase(str)[0].toUpperCase() + camelCase(str).slice(1);
+
+  snakeCaseValue.innerText = replaceSpace(str, "_");
+  kebabCaseValue.innerText = replaceSpace(str, "-");
+});
