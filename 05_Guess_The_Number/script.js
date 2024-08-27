@@ -5,6 +5,8 @@ const hint = document.querySelector(".hint");
 const previoiusGuesses = document.querySelector(".previous-guess");
 const startGameButton = document.querySelector(".start-game-button");
 const submitButton = document.querySelector(".submit-btn");
+
+
 let userInputCount = 0;
 let startButtonClickable = false;
 
@@ -51,11 +53,7 @@ function restartGame() {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  //user guess can not be empty
-  if (userNumberInput.value === "") {
-    alert("Enter a Number");
-    return;
-  }
+
   ++userInputCount;
   const userGuessNumber = Number(userNumberInput.value);
   if (userInputCount <= 10) {
@@ -77,5 +75,3 @@ startGameButton.addEventListener("click", (e) => {
 });
 
 userNumberInput.focus();
-
-

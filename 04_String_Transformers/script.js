@@ -8,7 +8,7 @@ const snakeCaseValue = document.querySelector(".snake-case div");
 const kebabCaseValue = document.querySelector(".kebab-case div");
 
 function camelCase(str) {
-  console.log(str);
+  str = str.toLowerCase();
 
   for (let i = 0; i < str.length; i++) {
     if (str[i] === " " && str[i + 1] != undefined) {
@@ -31,16 +31,7 @@ function replaceSpace(str, symbol) {
 
 stringInput.addEventListener("input", () => {
   const str = stringInput.value.trim();
-  let spaceCount = 0;
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] === " ") {
-      ++spaceCount;
-    }
-  }
 
-  if (spaceCount === str.length) {
-    return;
-  }
 
   lowerCaseValue.innerText = str.toLowerCase();
   upperCaseValue.innerText = str.toUpperCase();
