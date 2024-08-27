@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+h1 {
+  font-size: 3rem;
+  font-family: sans-serif;
+}
+
+span {
+  color: brown;
+  display: inline-flex;
+}
+
+span::after {
+  content: "";
+  width: 2px;
+  height: 55px;
+  background-color: brown;
+}
