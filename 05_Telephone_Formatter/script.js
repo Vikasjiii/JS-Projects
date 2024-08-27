@@ -1,29 +1,22 @@
+
 const input = document.querySelector("input");
 const form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 });
 
-input.addEventListener("input", () => {
-  if (input.value.length > 16) {
-    return;
-  }
+const getStringWithNumbersOnly = (str) => {
+  return [...str].filter((v) => Number.isInteger(+v) && v !== " ").join("");
+};
 
-  const regex = /^\d+$/;
+const formatString = (str) => {
+  const numStr = getStringWithNumbersOnly(str);
+  return numStr.length > 3
+    ? "+(" + numStr.substring(0, 3) + ") - " + numStr.substring(3)
+    : numStr;
+};
 
-  if (input.value.length === 3 && regex.test(input.value)) {
-    const first3Num = `+(${input.value}) - `;
-    console.log(first3Num);
-    input.value = first3Num;
-  }
-});
-
-input.addEventListener("keydown", (e) => {
-  if (e.code === "Backspace") {
-const data=input.value.slice(0,input.value.length-1)
-    if (input.value.length <= 11) {
-      const numbersOnly = input.value.match(/\d+/g, "");
-      input.value=numbersOnly
-    }
-  }
-});
+input.addEventListener(
+  "input",
+  () => (input.value = formatString(input.value))
+);
