@@ -1,0 +1,14 @@
+*{
+    box-sizing: border-box;
+}
+
+.box{
+    height: 50px;
+    width: 50px;
+    background-color: teal;
+    position: absolute;
+    top: 92%;
+    left: 42%;
+    
+    
+}
