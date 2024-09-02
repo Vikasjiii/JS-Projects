@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins",sans-serif;
+  color: #492118;
+  background-color: #f6f1ea;
+  margin-bottom: 50px;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+a{
+  text-decoration-line: none;
+  color: inherit;
+}
+
+header {
+  background-color: #ffffff;
+  padding-inline: 24px;
+  padding-block: 16px;
+}
+header > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+nav ul {
+  display: flex;
+  gap: 60px;
+}
+nav ul li {
+  font-size: 20px;
+  font-weight: 700;
+}
+.hero-page {
+  padding-inline: 76px;
+}
+.hero-img-container {
+  max-width: 1290px;
+  margin-inline: auto;
+  margin-block: 100px;
+}
+.hero-img-container img {
+  width: 100%;
+}
+
+.hero-img-container p {
+  text-align: center;
+  font-size: 24px;
+}
+
+.top-picks > div {
+  max-width: 1040px;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+.section-heading {
+  font-size: 48px;
+  text-align: center;
+  font-weight: 700;
+}
+.img-container {
+  margin-bottom: 120px;
+}
+.img-container img {
+  width: 100%;
+}
+.go-to-top {
+  text-align: right;
+}
+.go-to-top a {
+  color: inherit;
+  font-weight: 700;
+  font-size: 32px;
+}
+.made-with {
+  color: #858585;
+  text-align: center;
+}
+@media (width<=1200px) {
+  nav ul li {
+    font-size: 16px;
+  }
+  nav ul {
+    gap: 40px;
+  }
+  .hero-page {
+    padding-inline: 16px;
+  }
+  .hero-img-container {
+    margin-block: 32px;
+  }
+  header {
+    padding-block: 10px;
+  }
+}
+
+@media (width<=900px) {
+  nav ul li {
+    font-size: 12px;
+  }
+  nav ul {
+    gap: 20px;
+  }
+  .hero-img-container p {
+    font-size: 16px;
+  }
+  .section-heading {
+    font-size: 16px;
+  }
+  .go-to-top a {
+    font-size: 16px;
+  
+  }
+  .made-with {
+    margin-top: 32px;
+    font-size: 12px;
+}
+
+@media (width<=768px) {
+  .hero-img-container p {
+    font-size: 10px;
+  }
+  nav {
+    display: none;
+  }
+  .img-container {
+    margin-bottom: 40px;
+  }
+}
